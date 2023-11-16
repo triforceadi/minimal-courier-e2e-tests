@@ -35,10 +35,7 @@ jobs:
         run: docker run -p 3000:3000 -d triforceadi/minimal-courier-api
 
       - name: Run Playwright Tests
-        run: |
-          npx playwright test
-          docker stop triforceadi/minimal-courier-api
-          docker rm triforceadi/minimal-courier-api
+        run: npx playwright test
 
       - name: Check docker containers
         run: docker ps
