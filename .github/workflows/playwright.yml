@@ -39,3 +39,11 @@ jobs:
           npx playwright test
           docker stop triforceadi/minimal-courier-api
           docker rm triforceadi/minimal-courier-api
+
+      - name: Check docker containers
+        run: docker ps
+
+      - name: Stop Docker Container
+        run: |
+          docker stop triforceadi/minimal-courier-api
+          docker rm triforceadi/minimal-courier-api
