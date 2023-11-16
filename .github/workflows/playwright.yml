@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout Repository
@@ -17,10 +17,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 21
 
       - name: Install Dependencies
         run: npm install
 
+      - name: Pull Docker Image
+        run: docker pull minimal-courier-api:latest
+
+      - name: Run Docker Container
+        run: docker run -d --name minimal-courier-api:latest
+
       - name: Run Playwright Tests
-        run: npx playwright test
+        run: |
+          # Add any additional setup steps for your tests, if needed
+          npx playwright test
+          
+          # Cleanup: Stop and remove the Docker container
+          docker stop minimal-courier-api
+          docker rm minimal-courier-api
