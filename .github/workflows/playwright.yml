@@ -29,13 +29,10 @@ jobs:
         run: docker pull triforceadi/minimal-courier-api:latest
 
       - name: Run Docker Container
-        run: docker run -d --name minimal-courier-api:latest
+        run: docker run -d minimal-courier-api:latest
 
       - name: Run Playwright Tests
         run: |
-          # Add any additional setup steps for your tests, if needed
           npx playwright test
-          
-          # Cleanup: Stop and remove the Docker container
-          docker stop minimal-courier-api
-          docker rm minimal-courier-api
+          docker stop minimal-courier-api:latest
+          docker rm minimal-courier-api:latest
