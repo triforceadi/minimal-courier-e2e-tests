@@ -32,7 +32,7 @@ jobs:
         run: docker images
 
       - name: Run Docker Container
-        run: docker run -p 3000:3000 -d triforceadi/minimal-courier-api
+        run: docker run -p 3000:3000 -d testContainer triforceadi/minimal-courier-api
 
       - name: Run Playwright Tests
         run: npx playwright test
@@ -42,5 +42,5 @@ jobs:
 
       - name: Stop Docker Container
         run: |
-          docker stop triforceadi/minimal-courier-api
-          docker rm triforceadi/minimal-courier-api
+          docker stop testContainer
+          docker rm testContainer
