@@ -27,6 +27,8 @@ jobs:
 
       - name: Pull Docker Image
         run: docker pull triforceadi/minimal-courier-api
+      
+      - name: Check Docker images
         run: docker images
 
       - name: Run Docker Container
