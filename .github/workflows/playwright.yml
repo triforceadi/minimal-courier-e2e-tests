@@ -27,18 +27,12 @@ jobs:
 
       - name: Pull Docker Image
         run: docker pull triforceadi/minimal-courier-api
-      
-      - name: Check Docker images
-        run: docker images
 
       - name: Run Docker Container
         run: docker run -p 3000:3000 -d --name testContainer triforceadi/minimal-courier-api
 
       - name: Run Playwright Tests
         run: npx playwright test
-
-      - name: Check docker containers
-        run: docker ps
 
       - name: Stop Docker Container
         run: |
