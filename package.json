@@ -9,10 +9,12 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.39.0",
-    "@types/node": "^20.9.0"
+    "@types/node": "^20.9.0",
+    "underscore": ">=1.12.1"
   },
   "dependencies": {
     "act": "^0.0.6",
-    "playwright": "^1.39.0"
+    "playwright": "^1.39.0",
+    "underscore": ">=1.12.1"
   }
 }
