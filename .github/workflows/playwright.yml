@@ -31,6 +31,10 @@ jobs:
       - name: Run Docker Container
         run: docker run -p 3000:3000 -d --name testContainer triforceadi/minimal-courier-api
 
+      - name: Sleep for 3 seconds
+        run: sleep 3s
+        shell: bash
+
       - name: Run Playwright Tests
         run: npx playwright test
 
